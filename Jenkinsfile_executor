@@ -1,0 +1,13 @@
+pipline{
+    agent any
+    triggers {
+        pollSCM('*/1 * * * *')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                sh "docker build -t api_test_executor . -f Dockerfile_executor"
+            }
+        }
+    }
+}
