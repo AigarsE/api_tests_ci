@@ -18,7 +18,9 @@ pipeline{
         }
         stage('test-dev') {
             steps {
-                echo "Testing on DEV"
+                script{
+                    test('dev')
+                }
             }
         }
         stage('deploy-int') {
@@ -30,7 +32,9 @@ pipeline{
         }
         stage('test-int') {
             steps {
-                echo "Testing on INT"
+                script{
+                    test('int')
+                }
             }
         }
         stage('deploy-prd') {
@@ -42,7 +46,9 @@ pipeline{
         }
         stage('test-prd') {
             steps {
-                echo "Testing on PRD"
+                script{
+                    test('prd')
+                }
             }
         }
     }
